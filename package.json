@@ -1,5 +1,29 @@
 {
   "devDependencies": {
+    "@types/node": "^20.6.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "dependencies": {
+    "@caporal/core": "^2.0.7",
+    "caporal": "^1.4.0",
+    "commander": "^11.0.0",
+    "minimist": "^1.2.8"
+  },
+  "name": "til-tool",
+  "description": "A command-line tool for authoring \"Today I Learned\" posts in Markdown, which can be converted to HTML for publishing on the web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seog-jun/til-tool.git"
+  },
+  "author": "Seog-Jun Hong",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seog-jun/til-tool/issues"
+  },
+  "homepage": "https://github.com/seog-jun/til-tool#readme"
 }
