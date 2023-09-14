@@ -21,7 +21,6 @@ module.exports.htmlCreator = function (
     }
   </head>
   <body>
-    <h1>${title}</h1>
     ${newLine}
   </body>
   </html>`;
