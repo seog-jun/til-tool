@@ -18,17 +18,17 @@ program.version(
   "-v, --version",
   "output the current version"
 );
-program.option("-i, --input <filename>", "Converted file to html");
+program.option("-i, --input <filename>", "converts file to html");
+program.option("-o, --output <filename>", "creates a specified directory");
 const options = program.opts();
 program.parse(process.argv);
 
 const inputValue = program.opts().input;
+const outputValue = program.opts().output;
 
 if (options.input) {
   fs.rmSync(join(__dirname, `../til`), { recursive: true, force: true });
-  //   if (!fs.existsSync(join(__dirname, `../build`))) {
   fs.mkdirSync(join(__dirname, `../til`));
-  //   }
 
   // a single .txt file is used as an input
   if (inputValue.includes(".txt")) {
@@ -48,6 +48,41 @@ if (options.input) {
       const filename = path.parse(filesArray[i]).name;
       writeFileSync(
         join(__dirname, `../til/${filename}.html`),
+        writeFile.htmlCreator(
+          readFile.syncReadFile(join("../../", inputValue, filesArray[i])),
+          filename
+        )
+      );
+    }
+  }
+}
+if (options.output) {
+  // remove the existing dir and til directory
+  fs.rmSync(join(__dirname, `../til`), { recursive: true, force: true });
+  fs.rmSync(join(__dirname, `../${outputValue}`), {
+    recursive: true,
+    force: true,
+  });
+  fs.mkdirSync(join(__dirname, `../${outputValue}`));
+
+  // a single .txt file is used as an input
+  if (inputValue.includes(".txt")) {
+    const filename = path.parse(inputValue).name;
+    writeFileSync(
+      join(__dirname, `../${outputValue}/${filename}.html`),
+      writeFile.htmlCreator(
+        readFile.syncReadFile(join("../../", inputValue)),
+        filename
+      )
+    );
+  }
+  // a directory is used as an input
+  else {
+    const filesArray = readDir.readDirectory(join("../../", inputValue));
+    for (let i = 0; i < filesArray.length; i++) {
+      const filename = path.parse(filesArray[i]).name;
+      writeFileSync(
+        join(__dirname, `../${outputValue}/${filename}.html`),
         writeFile.htmlCreator(
           readFile.syncReadFile(join("../../", inputValue, filesArray[i])),
           filename
