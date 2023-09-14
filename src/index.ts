@@ -25,16 +25,16 @@ program.parse(process.argv);
 const inputValue = program.opts().input;
 
 if (options.input) {
-  fs.rmSync(join(__dirname, `../build`), { recursive: true, force: true });
+  fs.rmSync(join(__dirname, `../til`), { recursive: true, force: true });
   //   if (!fs.existsSync(join(__dirname, `../build`))) {
-  fs.mkdirSync(join(__dirname, `../build`));
+  fs.mkdirSync(join(__dirname, `../til`));
   //   }
 
   // a single .txt file is used as an input
   if (inputValue.includes(".txt")) {
     const filename = path.parse(inputValue).name;
     writeFileSync(
-      join(__dirname, `../build/${filename}.html`),
+      join(__dirname, `../til/${filename}.html`),
       writeFile.htmlCreator(readFile.syncReadFile(join("../../", inputValue)))
     );
   }
@@ -44,7 +44,7 @@ if (options.input) {
     for (let i = 0; i < filesArray.length; i++) {
       const filename = path.parse(filesArray[i]).name;
       writeFileSync(
-        join(__dirname, `../build/${filename}.html`),
+        join(__dirname, `../til/${filename}.html`),
         writeFile.htmlCreator(
           readFile.syncReadFile(join("../../", inputValue, filesArray[i]))
         )
