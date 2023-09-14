@@ -15,6 +15,10 @@ $ cd til_tool
 $ npm install
 ```
 
+### Troubleshooting Installation: Command not found: ts-node
+```bash
+$sudo npm install -g ts-node
+```
 
 ## Features
 - Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
