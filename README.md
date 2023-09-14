@@ -3,17 +3,22 @@ This is a simple command-line tool to convert .txt files into genereated .html f
 
 
 ## How to Install
+### Step 1: To make sure node and npm are installed, run
 ```bash
-# Step 1: To make sure node and npm are installed, run
 $ node --version
 $ npm --version
-
-# Step 2: Clone the repository to your local machine, and install it.
+```
+### Step 2: Clone the repository to your local machine, and install it.
+```bash
 $ git clone https://github.com/seog-jun/til-tool.git
 $ cd til_tool
 $ npm install
 ```
 
+### Troubleshooting Installation: Command not found: ts-node
+```bash
+$sudo npm install -g ts-node
+```
 
 ## Features
 - Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
@@ -137,6 +142,7 @@ $ ts-node src/index.ts -input examples
 ```
 
 ### -o, --output: 
+#### Allow the user to specify a different output directory using --output or -o. If not specified, til will be used, but if the user specifies a different output path, use that. The program should create the directory if it does not exist.
 #### Example: Converts a .text file to .html file stored in the specified directory instead './til'
 ```text
 ./example1.txt
@@ -229,7 +235,8 @@ $ ts-node src/index.ts -input examples -out build
 ```
 
 
-### -s, --stylesheet: 
+### -s, --stylesheet:
+#### Allow the user to optionally specify a --stylesheet or -s URL to a CSS stylesheet to be used in the <head> of your generated HTML files.
 #### Example: Converts a .text file to .html file with a stylesheet
 ```text
 ./example1.txt
