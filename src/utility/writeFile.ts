@@ -4,7 +4,6 @@ module.exports.htmlCreator = function (line: string[]) {
     if (line[i] === "") continue;
     newLine = newLine + `<p>${line[i]}</p>` + "\n" + "\t\t";
   }
-  console.log(newLine);
   const htmlString = `<!doctype html>
   <html lang="en">
   <head>
@@ -16,6 +15,5 @@ module.exports.htmlCreator = function (line: string[]) {
     ${newLine}
   </body>
   </html>`;
-  console.log(htmlString);
   return htmlString;
 };

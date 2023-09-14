@@ -6,7 +6,3 @@ module.exports.syncReadFile = function (filename: string) {
   const arr = contents.split(/\r?\n/);
   return arr;
 };
-
-// const lineArr = syncReadFile("../../examples/example1.txt");
-
-// writeFileSync("example1.html", htmlCreator(lineArr));

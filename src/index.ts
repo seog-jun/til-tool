@@ -43,7 +43,6 @@ if (options.input) {
     const filesArray = readDir.readDirectory(join("../../", inputValue));
     for (let i = 0; i < filesArray.length; i++) {
       const filename = path.parse(filesArray[i]).name;
-      console.log(filename);
       writeFileSync(
         join(__dirname, `../build/${filename}.html`),
         writeFile.htmlCreator(
