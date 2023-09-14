@@ -35,7 +35,10 @@ if (options.input) {
     const filename = path.parse(inputValue).name;
     writeFileSync(
       join(__dirname, `../til/${filename}.html`),
-      writeFile.htmlCreator(readFile.syncReadFile(join("../../", inputValue)))
+      writeFile.htmlCreator(
+        readFile.syncReadFile(join("../../", inputValue)),
+        filename
+      )
     );
   }
   // a directory is used as an input
@@ -46,7 +49,8 @@ if (options.input) {
       writeFileSync(
         join(__dirname, `../til/${filename}.html`),
         writeFile.htmlCreator(
-          readFile.syncReadFile(join("../../", inputValue, filesArray[i]))
+          readFile.syncReadFile(join("../../", inputValue, filesArray[i])),
+          filename
         )
       );
     }

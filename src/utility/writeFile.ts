@@ -1,4 +1,4 @@
-module.exports.htmlCreator = function (line: string[]) {
+module.exports.htmlCreator = function (line: string[], title: string) {
   var newLine = "";
   for (let i = 0; i < line.length; i++) {
     if (line[i] === "") continue;
@@ -8,10 +8,11 @@ module.exports.htmlCreator = function (line: string[]) {
   <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Filename</title>
+    <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <h1>${title}</h1>
     ${newLine}
   </body>
   </html>`;
