@@ -142,6 +142,7 @@ $ ts-node src/index.ts -input examples
 ```
 
 ### -o, --output: 
+#### Allow the user to specify a different output directory using --output or -o. If not specified, til will be used, but if the user specifies a different output path, use that. The program should create the directory if it does not exist.
 #### Example: Converts a .text file to .html file stored in the specified directory instead './til'
 ```text
 ./example1.txt
@@ -234,7 +235,8 @@ $ ts-node src/index.ts -input examples -out build
 ```
 
 
-### -s, --stylesheet: 
+### -s, --stylesheet:
+#### Allow the user to optionally specify a --stylesheet or -s URL to a CSS stylesheet to be used in the <head> of your generated HTML files.
 #### Example: Converts a .text file to .html file with a stylesheet
 ```text
 ./example1.txt
