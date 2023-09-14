@@ -3,12 +3,13 @@ This is a simple command-line tool to convert .txt files into genereated .html f
 
 
 ## How to Install
+### Step 1: To make sure node and npm are installed, run
 ```bash
-# Step 1: To make sure node and npm are installed, run
 $ node --version
 $ npm --version
-
-# Step 2: Clone the repository to your local machine, and install it.
+```
+### Step 2: Clone the repository to your local machine, and install it.
+```bash
 $ git clone https://github.com/seog-jun/til-tool.git
 $ cd til_tool
 $ npm install
