@@ -11,7 +11,7 @@ const path = require("path");
 const fs = require("fs");
 
 // Command line inter face to use options
-program.name("ts-node src/index.ts").usage("-i");
+program.name("ts-node src/index.ts").usage("-i <fileName> / <dirName>");
 
 program.version(
   myInfo.name + " " + myInfo.version,
@@ -31,7 +31,7 @@ if (options.input) {
   //   }
 
   // a single .txt file is used as an input
-  if (inputValue.includes(".")) {
+  if (inputValue.includes(".txt")) {
     const filename = path.parse(inputValue).name;
     writeFileSync(
       join(__dirname, `../build/${filename}.html`),
