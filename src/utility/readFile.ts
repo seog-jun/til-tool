@@ -1,8 +1,8 @@
-import { readFileSync } from "fs";
-import { join } from "path";
+import path from "path";
+import fs from "fs";
 
-module.exports.syncReadFile = function (filename: string) {
-  const contents = readFileSync(join(__dirname, filename), "utf-8");
+export function syncReadFile(filename: string) {
+  const contents = fs.readFileSync(path.join(__dirname, filename), "utf-8");
   const arr = contents.split(/\r?\n/);
   return arr;
-};
+}

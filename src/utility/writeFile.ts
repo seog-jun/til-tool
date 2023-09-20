@@ -1,9 +1,9 @@
-module.exports.htmlCreator = function (
+export function htmlCreator(
   line: string[],
   title: string,
   stylesheetURL: string = ""
 ) {
-  var newLine = "";
+  let newLine = "";
   for (let i = 0; i < line.length; i++) {
     if (line[i] === "") continue;
     newLine = newLine + `<p>${line[i]}</p>` + "\n" + "\t\t";
@@ -25,4 +25,4 @@ module.exports.htmlCreator = function (
   </body>
   </html>`;
   return htmlString;
-};
+}
