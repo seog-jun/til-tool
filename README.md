@@ -335,7 +335,7 @@ ts-node src/index.ts -i examples/text3.md
 ```
 
 ```bash
-./til/text3.md
+./til/text3.html
 
 <!DOCTYPE html>
 <html lang="en">

@@ -62,6 +62,7 @@ function createHTMLContent(content: string, title: string, stylesheetURL: string
 }
 
 // Function to create HTML from a file (supporting both .txt and .md)
+
 export function htmlCreatorFromFile(
   filePath: string,
   title: string,

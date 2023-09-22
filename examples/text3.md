@@ -1,5 +1,5 @@
 
-This is a paragraph of text in **Markdown**.
+This is a paragraph of text is in **Markdown**.
 
 *This is italic text.*
 
