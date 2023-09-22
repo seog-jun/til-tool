@@ -309,6 +309,7 @@ $ ts-node src/index.ts -input examples --stylesheet https://cdn.jsdelivr.net/npm
   </html>
 ```
 ```html
+
 ./til/text2.html
 
 <!doctype html>
@@ -326,6 +327,38 @@ $ ts-node src/index.ts -input examples --stylesheet https://cdn.jsdelivr.net/npm
 		
   </body>
   </html>
+```
+
+#### Example to convert Markdown file to HTML file
+
+```bash
+ts-node src/index.ts -i examples/text3.md
+```
+
+```bash
+./til/text3.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Format</title>
+</head>
+<body>
+    <p>This is a paragraph of text in <strong>HTML</strong>.</p>
+    <p><em>This is italic text.</em></p>
+    <p><strong>This is bold text.</strong></p>
+    <p><em><strong>This is italic and bold text.</strong></em></p>
+</body>
+</html>
+
+```
+
+#### To convert Markdown Directory to html file
+
+```bash
+ts-node src/index.ts -i example -o til
 ```
 
 ## License
