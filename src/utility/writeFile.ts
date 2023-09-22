@@ -34,7 +34,6 @@ function markdownToHTML(markdownText: string): string {
   markdownText = markdownText.replace(/(\*{1,2})([^\*]+)\1/g, '<$1>$2</$1>');
   
   // You can add more Markdown to HTML conversions here as needed
-  // For example, handling headings, links, etc.
 
   return markdownText;
 }
