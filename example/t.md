@@ -1,4 +1,3 @@
-
 This is a paragraph of text in **Markdown**.
 
 *This is italic text.*

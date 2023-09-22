@@ -27,7 +27,7 @@ const inputValue = program.opts().input;
 const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
-// to differentiate between file and direc
+// to differentiate between file and directory
 
 if (!inputValue) {
   console.error("Input file or directory is required.");
