@@ -27,6 +27,16 @@ const inputValue = program.opts().input;
 const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
+if (!inputValue) {
+  console.error("Input file or directory is required.");
+  process.exit(1); // Exit with an error code
+}
+
+if (!fs.existsSync(inputValue)) {
+  console.error("Input file or directory does not exist.");
+  process.exit(1); // Exit with an error code
+}
+
 if (options.input) {
   fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
   fs.mkdirSync(path.join(__dirname, `../til`));
