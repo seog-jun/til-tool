@@ -27,6 +27,7 @@ const inputValue = program.opts().input;
 const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
+//to support both file and directory for input - md file 
 // to differentiate between file and directory
 
 if (!inputValue) {

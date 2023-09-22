@@ -27,7 +27,7 @@ export function htmlCreator(
   </html>`;
   return htmlString;
 }
-
+// lab 2
 // Function to convert Markdown to HTML
 function markdownToHTML(markdownText: string): string {
   // Replace italic and bold markdown with HTML tags
@@ -83,3 +83,4 @@ export function htmlCreatorFromFile(
     throw new Error(`Unsupported file extension: .${fileExtension}`);
   }
 }
+
