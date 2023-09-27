@@ -127,6 +127,8 @@ $ ts-node src/index.ts examples
 | -o, --output     | creates a specified directory |
 | -s, --stylesheet | sets a stylesheet to HTML     |
 | -h, --help       | display help for command      |
+| -l, --lang       | indicates the language to use |
+
 
 
 ## Usages
@@ -320,6 +322,95 @@ $ ts-node src/index.ts examples --stylesheet https://cdn.jsdelivr.net/npm/water.
     <title>text2</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  </head>
+  <body>
+    <h1>text2</h1>
+    <p>This is the text2.txt in examples directory.</p>
+    <p>This is the text2.txt in examples directory.</p>
+		
+  </body>
+  </html>
+```
+
+
+### -l, --lang:
+#### Allow the user to add an optional -i or --lang to indicate the language to use when generating the lang attribute on the root element.
+#### Example: Converts a .text file to .html file with a lang attribute
+```text
+./example1.txt
+This is the first paragraph.
+
+This is the second paragraph.
+```
+
+```bash
+$ ts-node src/index.ts example1.txt -l br 
+$ ts-node src/index.ts example1.txt --lang br
+```
+
+```html
+./til/example1.html
+
+<!doctype html>
+  <html lang="br">
+    <head>
+    <meta charset="utf-8">
+    <title>example1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <p>This is the first paragraph.</p>
+    <p>This is the second paragraph.</p>
+  </body>
+  </html>
+```
+
+#### Example: Convert .txt files in a directory to .html files with a lang attribute
+```text
+./examples/text1.txt
+This is the text1.txt in examples directory.
+
+This is the text1.txt in examples directory.
+
+./examples/text2.txt
+This is the text2.txt in examples directory.
+
+This is the text2.txt in examples directory.
+
+```
+
+```bash
+$ ts-node src/index.ts examples -l br
+$ ts-node src/index.ts examples --lang br
+```
+
+```html
+./til/text1.html
+
+<!doctype html>
+  <html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <title>text1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>text1</h1>
+    <p>This is the text1.txt in examples directory.</p>
+    <p>This is the text1.txt in examples directory.</p>
+		
+  </body>
+  </html>
+```
+```html
+./til/text2.html
+
+<!doctype html>
+  <html lang="br">
+  <head>
+    <meta charset="utf-8">
+    <title>text2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <h1>text2</h1>
