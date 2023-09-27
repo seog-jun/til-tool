@@ -28,12 +28,13 @@ const arg = program.args[0];
 const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
+const fileExt = arg.substring(arg.lastIndexOf("."));
 if (arg) {
   fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
   fs.mkdirSync(path.join(__dirname, `../til`));
 
   // a single .txt file is used as an input
-  if (arg.includes(".txt")) {
+  if (fileExt === ".txt") {
     const filename = path.parse(arg).name;
 
     if (options.stylesheet) {
@@ -92,7 +93,7 @@ if (options.output) {
   fs.mkdirSync(path.join(__dirname, `../${outputValue}`));
 
   // a single .txt file is used as an input
-  if (arg.includes(".txt")) {
+  if (fileExt === ".txt") {
     const filename = path.parse(arg).name;
     fs.writeFileSync(
       path.join(__dirname, `../${outputValue}/${filename}.html`),
