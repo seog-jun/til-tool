@@ -153,7 +153,7 @@ This is the second paragraph.
 
 ```bash
 $ ts-node src/index.ts -i example1.txt -o build
-$ ts-node src/index.ts -input example1.txt -output build
+$ ts-node src/index.ts -input example1.txt --output build
 ```
 
 ```html
@@ -192,7 +192,7 @@ This is the text2.txt in examples directory.
 
 ```bash
 $ ts-node src/index.ts -i examples -o build
-$ ts-node src/index.ts -input examples -out build
+$ ts-node src/index.ts -input examples --output build
 ```
 
 ```html
