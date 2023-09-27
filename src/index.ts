@@ -18,13 +18,13 @@ program.version(
   "outputs the current version"
 );
 program.argument("<fileName/dirName>", "converts file to html");
-// program.option("-i, --input <fileName>", "converts file to html");
+program.option("-l, --lang <language>", "indicates the language to use");
 program.option("-o, --output <dirName>", "creates a specified directory");
 program.option("-s, --stylesheet <stylesheetURL>", "sets a stylesheet to HTML");
 const options = program.opts();
 program.parse(process.argv);
 const arg = program.args[0];
-// const inputValue = program.opts().input;
+const langValue = program.opts().lang;
 const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
@@ -37,19 +37,32 @@ if (arg) {
   if (fileExt === ".txt") {
     const filename = path.parse(arg).name;
 
+    // if option -s is selected
     if (options.stylesheet) {
       fs.writeFileSync(
         path.join(__dirname, `../til/${filename}.html`),
         htmlCreator(
           syncReadFile(path.join("../../", arg)),
           filename,
-          styleValue
+          styleValue,
+          ""
+        )
+      );
+      // if option -l is selected
+    } else if (options.lang) {
+      fs.writeFileSync(
+        path.join(__dirname, `../til/${filename}.html`),
+        htmlCreator(
+          syncReadFile(path.join("../../", arg)),
+          filename,
+          "",
+          langValue
         )
       );
     } else {
       fs.writeFileSync(
         path.join(__dirname, `../til/${filename}.html`),
-        htmlCreator(syncReadFile(path.join("../../", arg)), filename)
+        htmlCreator(syncReadFile(path.join("../../", arg)), filename, "", "")
       );
     }
   }
@@ -65,7 +78,21 @@ if (arg) {
           htmlCreator(
             syncReadFile(path.join("../../", arg, filesArray[i])),
             filename,
-            styleValue
+            styleValue,
+            ""
+          )
+        );
+      }
+    } else if (options.lang) {
+      for (let i = 0; i < filesArray.length; i++) {
+        const filename = path.parse(filesArray[i]).name;
+        fs.writeFileSync(
+          path.join(__dirname, `../til/${filename}.html`),
+          htmlCreator(
+            syncReadFile(path.join("../../", arg, filesArray[i])),
+            filename,
+            "",
+            langValue
           )
         );
       }
@@ -76,7 +103,9 @@ if (arg) {
           path.join(__dirname, `../til/${filename}.html`),
           htmlCreator(
             syncReadFile(path.join("../../", arg, filesArray[i])),
-            filename
+            filename,
+            "",
+            ""
           )
         );
       }
