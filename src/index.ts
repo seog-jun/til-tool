@@ -29,128 +29,118 @@ const outputValue = program.opts().output;
 const styleValue = program.opts().stylesheet;
 
 const fileExt = arg.substring(arg.lastIndexOf("."));
-if (fs.existsSync(arg)) {
-  {
-    fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
-    fs.mkdirSync(path.join(__dirname, `../til`));
+if (arg) {
+  fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
+  fs.mkdirSync(path.join(__dirname, `../til`));
 
-    // a single .txt file is used as an input
-    if (fileExt === ".txt") {
-      const filename = path.parse(arg).name;
+  // a single .txt file is used as an input
+  if (fileExt === ".txt") {
+    const filename = path.parse(arg).name;
 
-      // if option -s is selected
-      if (options.stylesheet) {
+    // if option -s is selected
+    if (options.stylesheet) {
+      fs.writeFileSync(
+        path.join(__dirname, `../til/${filename}.html`),
+        htmlCreator(
+          syncReadFile(path.join("../../", arg)),
+          filename,
+          styleValue,
+          ""
+        )
+      );
+      // if option -l is selected
+    } else if (options.lang) {
+      fs.writeFileSync(
+        path.join(__dirname, `../til/${filename}.html`),
+        htmlCreator(
+          syncReadFile(path.join("../../", arg)),
+          filename,
+          "",
+          langValue
+        )
+      );
+    } else {
+      fs.writeFileSync(
+        path.join(__dirname, `../til/${filename}.html`),
+        htmlCreator(syncReadFile(path.join("../../", arg)), filename, "", "")
+      );
+    }
+  }
+  // a directory is used as an input
+  else {
+    const filesArray = readDirectory(path.join("../../", arg));
+
+    if (options.stylesheet) {
+      for (let i = 0; i < filesArray.length; i++) {
+        const filename = path.parse(filesArray[i]).name;
         fs.writeFileSync(
           path.join(__dirname, `../til/${filename}.html`),
           htmlCreator(
-            syncReadFile(path.join("../../", arg)),
+            syncReadFile(path.join("../../", arg, filesArray[i])),
             filename,
             styleValue,
             ""
           )
         );
-        // if option -l is selected
-      } else if (options.lang) {
+      }
+    } else if (options.lang) {
+      for (let i = 0; i < filesArray.length; i++) {
+        const filename = path.parse(filesArray[i]).name;
         fs.writeFileSync(
           path.join(__dirname, `../til/${filename}.html`),
           htmlCreator(
-            syncReadFile(path.join("../../", arg)),
+            syncReadFile(path.join("../../", arg, filesArray[i])),
             filename,
             "",
             langValue
           )
         );
-      } else {
-        fs.writeFileSync(
-          path.join(__dirname, `../til/${filename}.html`),
-          htmlCreator(syncReadFile(path.join("../../", arg)), filename, "", "")
-        );
-      }
-    }
-    // a directory is used as an input
-    else if (!arg.includes(".")) {
-      const filesArray = readDirectory(path.join("../../", arg));
-
-      if (options.stylesheet) {
-        for (let i = 0; i < filesArray.length; i++) {
-          const filename = path.parse(filesArray[i]).name;
-          fs.writeFileSync(
-            path.join(__dirname, `../til/${filename}.html`),
-            htmlCreator(
-              syncReadFile(path.join("../../", arg, filesArray[i])),
-              filename,
-              styleValue,
-              ""
-            )
-          );
-        }
-      } else if (options.lang) {
-        for (let i = 0; i < filesArray.length; i++) {
-          const filename = path.parse(filesArray[i]).name;
-          fs.writeFileSync(
-            path.join(__dirname, `../til/${filename}.html`),
-            htmlCreator(
-              syncReadFile(path.join("../../", arg, filesArray[i])),
-              filename,
-              "",
-              langValue
-            )
-          );
-        }
-      } else {
-        for (let i = 0; i < filesArray.length; i++) {
-          const filename = path.parse(filesArray[i]).name;
-          fs.writeFileSync(
-            path.join(__dirname, `../til/${filename}.html`),
-            htmlCreator(
-              syncReadFile(path.join("../../", arg, filesArray[i])),
-              filename,
-              "",
-              ""
-            )
-          );
-        }
       }
     } else {
-      console.log("Invalid fileName/dirName");
-      process.exit(-1);
-    }
-  }
-  // options is output, overwrite the file/dir above
-  if (options.output) {
-    // remove the existing dir and til directory
-    fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
-    fs.rmSync(path.join(__dirname, `../${outputValue}`), {
-      recursive: true,
-      force: true,
-    });
-    fs.mkdirSync(path.join(__dirname, `../${outputValue}`));
-
-    // a single .txt file is used as an input
-    if (fileExt === ".txt") {
-      const filename = path.parse(arg).name;
-      fs.writeFileSync(
-        path.join(__dirname, `../${outputValue}/${filename}.html`),
-        htmlCreator(syncReadFile(path.join("../../", arg)), filename)
-      );
-    }
-    // a directory is used as an input
-    else {
-      const filesArray = readDirectory(path.join("../../", arg));
       for (let i = 0; i < filesArray.length; i++) {
         const filename = path.parse(filesArray[i]).name;
         fs.writeFileSync(
-          path.join(__dirname, `../${outputValue}/${filename}.html`),
+          path.join(__dirname, `../til/${filename}.html`),
           htmlCreator(
             syncReadFile(path.join("../../", arg, filesArray[i])),
-            filename
+            filename,
+            "",
+            ""
           )
         );
       }
     }
   }
-  process.exit(0);
-} else {
-  console.log("Please type valid fileName/dirName");
-  process.exit(-1);
+}
+if (options.output) {
+  // remove the existing dir and til directory
+  fs.rmSync(path.join(__dirname, `../til`), { recursive: true, force: true });
+  fs.rmSync(path.join(__dirname, `../${outputValue}`), {
+    recursive: true,
+    force: true,
+  });
+  fs.mkdirSync(path.join(__dirname, `../${outputValue}`));
+
+  // a single .txt file is used as an input
+  if (fileExt === ".txt") {
+    const filename = path.parse(arg).name;
+    fs.writeFileSync(
+      path.join(__dirname, `../${outputValue}/${filename}.html`),
+      htmlCreator(syncReadFile(path.join("../../", arg)), filename)
+    );
+  }
+  // a directory is used as an input
+  else {
+    const filesArray = readDirectory(path.join("../../", arg));
+    for (let i = 0; i < filesArray.length; i++) {
+      const filename = path.parse(filesArray[i]).name;
+      fs.writeFileSync(
+        path.join(__dirname, `../${outputValue}/${filename}.html`),
+        htmlCreator(
+          syncReadFile(path.join("../../", arg, filesArray[i])),
+          filename
+        )
+      );
+    }
+  }
 }
