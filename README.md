@@ -24,32 +24,11 @@ $sudo npm install -g ts-node
 - Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
 - Pass in a directory and it'll look for and find all .txt files within the directory and genereate multiple html files in `./til` directory.
 
-
-## Options
-
-| Option           | Role                          |
+## Argument
+| Argument         | Role                          |
 |------------------|-------------------------------|
-| -v, --version    | outputs the current version   |
-| -i, --input      | converts file to html         |
-| -o, --output     | creates a specified directory |
-| -s, --stylesheet | sets a stylesheet to HTML     |
-| -h, --help       | display help for command      |
+| fileName/dirName | converts files to html        |
 
-
-## Usages
-
-### -v, --version: 
-```bash
-$ ts-node src/index.ts -v
-$ ts-node src/index.ts --version
-```
-### -h, --help:
-```bash
-$ ts-node src/index.ts -h
-$ ts-node src/index.ts --help
-```
-
-### -i, --input: 
 
 #### Example: Converts a .text file .html file
 ```text
@@ -60,8 +39,7 @@ This is the second paragraph.
 ```
 
 ```bash
-$ ts-node src/index.ts -i example1.txt
-$ ts-node src/index.ts -input example1.txt
+$ ts-node src/index.ts example1.txt
 ```
 
 ```html
@@ -98,8 +76,7 @@ This is the text2.txt in examples directory.
 ```
 
 ```bash
-$ ts-node src/index.ts -i examples
-$ ts-node src/index.ts -input examples
+$ ts-node src/index.ts examples
 ```
 
 ```html
@@ -141,6 +118,31 @@ $ ts-node src/index.ts -input examples
   </html>
 ```
 
+
+## Options
+
+| Option           | Role                          |
+|------------------|-------------------------------|
+| -v, --version    | outputs the current version   |
+| -o, --output     | creates a specified directory |
+| -s, --stylesheet | sets a stylesheet to HTML     |
+| -h, --help       | display help for command      |
+
+
+## Usages
+
+### -v, --version: 
+```bash
+$ ts-node src/index.ts -v
+$ ts-node src/index.ts --version
+```
+### -h, --help:
+```bash
+$ ts-node src/index.ts -h
+$ ts-node src/index.ts --help
+```
+
+
 ### -o, --output: 
 #### Allow the user to specify a different output directory using --output or -o. If not specified, til will be used, but if the user specifies a different output path, use that. The program should create the directory if it does not exist.
 #### Example: Converts a .text file to .html file stored in the specified directory instead './til'
@@ -152,8 +154,8 @@ This is the second paragraph.
 ```
 
 ```bash
-$ ts-node src/index.ts -i example1.txt -o build
-$ ts-node src/index.ts -input example1.txt --output build
+$ ts-node src/index.ts example1.txt -o build
+$ ts-node src/index.ts example1.txt --output build
 ```
 
 ```html
@@ -191,8 +193,8 @@ This is the text2.txt in examples directory.
 ```
 
 ```bash
-$ ts-node src/index.ts -i examples -o build
-$ ts-node src/index.ts -input examples --output build
+$ ts-node src/index.ts examples -o build
+$ ts-node src/index.ts examples --output build
 ```
 
 ```html
@@ -246,8 +248,8 @@ This is the second paragraph.
 ```
 
 ```bash
-$ ts-node src/index.ts -i example1.txt -s https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
-$ ts-node src/index.ts -input example1.txt --stylesheet https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+$ ts-node src/index.ts example1.txt -s https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+$ ts-node src/index.ts example1.txt --stylesheet https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 ```
 
 ```html
@@ -285,8 +287,8 @@ This is the text2.txt in examples directory.
 ```
 
 ```bash
-$ ts-node src/index.ts -i examples -s https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
-$ ts-node src/index.ts -input examples --stylesheet https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+$ ts-node src/index.ts examples -s https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
+$ ts-node src/index.ts examples --stylesheet https://cdn.jsdelivr.net/npm/water.css@2/out/water.css
 ```
 
 ```html
