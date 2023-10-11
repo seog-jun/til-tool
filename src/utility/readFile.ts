@@ -1,7 +1,7 @@
 import path from "path";
 import fs from "fs";
 
-export function syncReadFile(filename: string) {
+export function readFile(filename: string) {
   try {
     const contents = fs.readFileSync(path.join(__dirname, filename), "utf-8");
     const arr = contents.split(/\r?\n/);
