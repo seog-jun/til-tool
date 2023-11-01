@@ -15,6 +15,11 @@ export function htmlCreator(
       <head>
       <meta charset="utf-8">
       <title>${title}</title>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+      <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"
+        rel="stylesheet"
+      />
       <meta name="viewport" content="width=device-width, initial-scale=1">
       ${
         stylesheetURL === ""

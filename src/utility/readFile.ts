@@ -1,9 +1,10 @@
 import path from "path";
 import fs from "fs";
-
+import { unwrapCodeBlocks } from "./helper";
 export function readFile(filename: string) {
   try {
-    const contents = fs.readFileSync(path.join(__dirname, filename), "utf-8");
+    let contents = fs.readFileSync(path.join(__dirname, filename), "utf-8");
+    contents = unwrapCodeBlocks(contents);
     const arr = contents.split(/\r?\n/);
     return arr;
   } catch (err) {
