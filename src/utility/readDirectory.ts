@@ -16,6 +16,4 @@ export function readDirectory(dirName: string) {
         console.log(err)
         process.exit(-1)
     }
-    const a = 123
-    console.log(a)
 }
