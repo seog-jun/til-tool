@@ -21,8 +21,7 @@ All types of contributions are encouraged and valued. See the [Table of Contents
 - [I Want To Contribute](#i-want-to-contribute)
   - [Reporting Bugs](#reporting-bugs)
   - [Suggesting Enhancements](#suggesting-enhancements)
-  - [Your First Code Contribution](#your-first-code-contribution)
-  - [Improving The Documentation](#improving-the-documentation)
+  - [Installation](#Installation)
 
 ## I Have a Question
 
@@ -113,16 +112,27 @@ Enhancement suggestions are tracked as [GitHub issues](https://github.com/seog-j
 
 <!-- You might want to create an issue template for enhancement suggestions that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
-### Your First Code Contribution
+### Installation
 
-<!-- TODO
-include Setup of env, IDE and typical getting started instructions?
+#### How to Install
 
--->
+##### Step 1: To make sure node and npm are installed, run
 
-### Improving The Documentation
+```bash
+$ node --version
+$ npm --version
+```
 
-<!-- TODO
-Updating, improving and correcting the documentation
+##### Step 2: Clone the repository to your local machine, and install it.
 
--->
+```bash
+$ git clone https://github.com/seog-jun/til-tool.git
+$ cd til_tool
+$ npm install
+```
+
+##### Troubleshooting Installation: Command not found: ts-node
+
+```bash
+$sudo npm install -g ts-node
+```
