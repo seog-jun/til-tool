@@ -4,8 +4,8 @@ This is a simple command-line tool to convert .txt files into genereated .html f
 
 ## Features
 
-- Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
-- Pass in a directory and it'll look for and find all .txt files within the directory and genereate multiple html files in `./til` directory.
+-   Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
+-   Pass in a directory and it'll look for and find all .txt files within the directory and genereate multiple html files in `./til` directory.
 
 ## Argument
 
@@ -29,18 +29,18 @@ $ ts-node src/index.ts example1.txt
 ```html
 ./til/example1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>example1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>example1</h1>
-    <p>This is the first paragraph.</p>
-    <p>This is the second paragraph.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>example1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>example1</h1>
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+    </body>
 </html>
 ```
 
@@ -66,36 +66,36 @@ $ ts-node src/index.ts examples
 ```html
 ./til/text1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text1</h1>
-    <p>This is the text1.txt in examples directory.</p>
-    <p>This is the text1.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text1</h1>
+        <p>This is the text1.txt in examples directory.</p>
+        <p>This is the text1.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
 ```html
 ./til/text2.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text2</h1>
-    <p>This is the text2.txt in examples directory.</p>
-    <p>This is the text2.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text2</h1>
+        <p>This is the text2.txt in examples directory.</p>
+        <p>This is the text2.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
@@ -146,18 +146,18 @@ $ ts-node src/index.ts example1.txt --output build
 ```html
 ./build/example1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>example1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>example1</h1>
-    <p>This is the first paragraph.</p>
-    <p>This is the second paragraph.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>example1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>example1</h1>
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+    </body>
 </html>
 ```
 
@@ -184,36 +184,36 @@ $ ts-node src/index.ts examples --output build
 ```html
 ./build/text1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text1</h1>
-    <p>This is the text1.txt in examples directory.</p>
-    <p>This is the text1.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text1</h1>
+        <p>This is the text1.txt in examples directory.</p>
+        <p>This is the text1.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
 ```html
 ./build/text2.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text2</h1>
-    <p>This is the text2.txt in examples directory.</p>
-    <p>This is the text2.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text2</h1>
+        <p>This is the text2.txt in examples directory.</p>
+        <p>This is the text2.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
@@ -238,22 +238,22 @@ $ ts-node src/index.ts example1.txt --stylesheet https://cdn.jsdelivr.net/npm/wa
 ```html
 ./til/example1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>example1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
-  </head>
-  <body>
-    <h1>example1</h1>
-    <p>This is the first paragraph.</p>
-    <p>This is the second paragraph.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>example1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+        />
+    </head>
+    <body>
+        <h1>example1</h1>
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+    </body>
 </html>
 ```
 
@@ -280,44 +280,44 @@ $ ts-node src/index.ts examples --stylesheet https://cdn.jsdelivr.net/npm/water.
 ```html
 ./til/text1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
-  </head>
-  <body>
-    <h1>text1</h1>
-    <p>This is the text1.txt in examples directory.</p>
-    <p>This is the text1.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+        />
+    </head>
+    <body>
+        <h1>text1</h1>
+        <p>This is the text1.txt in examples directory.</p>
+        <p>This is the text1.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
 ```html
 ./til/text2.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>text2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
-    />
-  </head>
-  <body>
-    <h1>text2</h1>
-    <p>This is the text2.txt in examples directory.</p>
-    <p>This is the text2.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+        />
+    </head>
+    <body>
+        <h1>text2</h1>
+        <p>This is the text2.txt in examples directory.</p>
+        <p>This is the text2.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
@@ -342,17 +342,17 @@ $ ts-node src/index.ts example1.txt --lang br
 ```html
 ./til/example1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="br">
-  <head>
-    <meta charset="utf-8" />
-    <title>example1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <p>This is the first paragraph.</p>
-    <p>This is the second paragraph.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>example1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+    </body>
 </html>
 ```
 
@@ -379,36 +379,36 @@ $ ts-node src/index.ts examples --lang br
 ```html
 ./til/text1.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="br">
-  <head>
-    <meta charset="utf-8" />
-    <title>text1</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text1</h1>
-    <p>This is the text1.txt in examples directory.</p>
-    <p>This is the text1.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text1</h1>
+        <p>This is the text1.txt in examples directory.</p>
+        <p>This is the text1.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
 ```html
 ./til/text2.html
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="br">
-  <head>
-    <meta charset="utf-8" />
-    <title>text2</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  </head>
-  <body>
-    <h1>text2</h1>
-    <p>This is the text2.txt in examples directory.</p>
-    <p>This is the text2.txt in examples directory.</p>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>text2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <body>
+        <h1>text2</h1>
+        <p>This is the text2.txt in examples directory.</p>
+        <p>This is the text2.txt in examples directory.</p>
+    </body>
 </html>
 ```
 
