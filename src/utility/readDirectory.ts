@@ -3,7 +3,7 @@ import fs from 'fs'
 
 export function readDirectory(dirName: string) {
     try {
-        let filesArray: string[] = []
+        const filesArray: string[] = []
         fs.readdirSync(path.join(__dirname, dirName)).forEach(
             (file: string) => {
                 if (path.extname(file) == '.txt') {
