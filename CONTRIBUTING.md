@@ -142,3 +142,9 @@ $sudo npm install -g ts-node
 ```bsh
 $npm run prettier
 ```
+
+#### Run Eslint
+
+```bsh
+$npm run lint
+```
