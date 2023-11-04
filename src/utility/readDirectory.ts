@@ -14,6 +14,7 @@ export function readDirectory(dirName: string) {
         return filesArray
     } catch (err) {
         console.log(err)
+        console.log(err)
         process.exit(-1)
     }
 }
