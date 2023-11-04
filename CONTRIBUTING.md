@@ -136,3 +136,9 @@ $ npm install
 ```bash
 $sudo npm install -g ts-node
 ```
+
+#### Run Prettier
+
+```bsh
+$npm run prettier
+```
