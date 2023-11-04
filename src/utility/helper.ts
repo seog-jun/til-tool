@@ -1,110 +1,113 @@
-import path from "path";
-import fs from "fs";
-import { readFile } from "../utility/readFile";
-import { htmlCreator } from "./htmlCreator";
+import path from 'path'
+import fs from 'fs'
+import { readFile } from '../utility/readFile'
+import { htmlCreator } from './htmlCreator'
 export function fileExt(ext: string) {
-  if (ext) {
-    return ext.substring(ext.lastIndexOf("."));
-  } else {
-    return process.exit(-1);
-  }
+    if (ext) {
+        return ext.substring(ext.lastIndexOf('.'))
+    } else {
+        return process.exit(-1)
+    }
 }
 
-export function removeDir(outputValue: string = "") {
-  if (outputValue) {
-    // remove the existing dir and til directory
-    fs.rmSync(path.join(__dirname, `../../til`), {
-      recursive: true,
-      force: true,
-    });
-    fs.rmSync(path.join(__dirname, `../../${outputValue}`), {
-      recursive: true,
-      force: true,
-    });
-    fs.mkdirSync(path.join(__dirname, `../../${outputValue}`));
-  } else {
-    fs.rmSync(path.join(__dirname, `../../til`), {
-      recursive: true,
-      force: true,
-    });
-    fs.mkdirSync(path.join(__dirname, `../../til`));
-  }
+export function removeDir(outputValue: string = '') {
+    if (outputValue) {
+        // remove the existing dir and til directory
+        fs.rmSync(path.join(__dirname, `../../til`), {
+            recursive: true,
+            force: true,
+        })
+        fs.rmSync(path.join(__dirname, `../../${outputValue}`), {
+            recursive: true,
+            force: true,
+        })
+        fs.mkdirSync(path.join(__dirname, `../../${outputValue}`))
+    } else {
+        fs.rmSync(path.join(__dirname, `../../til`), {
+            recursive: true,
+            force: true,
+        })
+        fs.mkdirSync(path.join(__dirname, `../../til`))
+    }
 }
 
 export function writeFile(
-  filename: string,
-  arg: string,
-  styleValue: string = "",
-  langValue: string = "",
-  outputValue: string = ""
+    filename: string,
+    arg: string,
+    styleValue: string = '',
+    langValue: string = '',
+    outputValue: string = ''
 ) {
-  if (outputValue) {
-    fs.writeFileSync(
-      path.join(__dirname, `../../${outputValue}/${filename}.html`),
-      htmlCreator(readFile(path.join("../../", arg)), filename)
-    );
-  } else {
-    fs.writeFileSync(
-      path.join(__dirname, `../../til/${filename}.html`),
-      htmlCreator(
-        readFile(path.join("../../", arg)),
-        filename,
-        styleValue,
-        langValue
-      )
-    );
-  }
+    if (outputValue) {
+        fs.writeFileSync(
+            path.join(__dirname, `../../${outputValue}/${filename}.html`),
+            htmlCreator(readFile(path.join('../../', arg)), filename)
+        )
+    } else {
+        fs.writeFileSync(
+            path.join(__dirname, `../../til/${filename}.html`),
+            htmlCreator(
+                readFile(path.join('../../', arg)),
+                filename,
+                styleValue,
+                langValue
+            )
+        )
+    }
 }
 
 export function writeMultipleFiles(
-  filesArray: string[],
-  arg: string,
-  styleValue: string = "",
-  langValue: string = "",
-  outputValue: string = ""
+    filesArray: string[],
+    arg: string,
+    styleValue: string = '',
+    langValue: string = '',
+    outputValue: string = ''
 ) {
-  if (outputValue) {
-    for (let i = 0; i < filesArray.length; i++) {
-      const filename = path.parse(filesArray[i]).name;
-      fs.writeFileSync(
-        path.join(__dirname, `../../${outputValue}/${filename}.html`),
-        htmlCreator(readFile(path.join("../../", arg, filesArray[i])), filename)
-      );
+    if (outputValue) {
+        for (let i = 0; i < filesArray.length; i++) {
+            const filename = path.parse(filesArray[i]).name
+            fs.writeFileSync(
+                path.join(__dirname, `../../${outputValue}/${filename}.html`),
+                htmlCreator(
+                    readFile(path.join('../../', arg, filesArray[i])),
+                    filename
+                )
+            )
+        }
+    } else {
+        for (let i = 0; i < filesArray.length; i++) {
+            const filename = path.parse(filesArray[i]).name
+            fs.writeFileSync(
+                path.join(__dirname, `../../til/${filename}.html`),
+                htmlCreator(
+                    readFile(path.join('../../', arg, filesArray[i])),
+                    filename,
+                    styleValue,
+                    langValue
+                )
+            )
+        }
     }
-  } else {
-    for (let i = 0; i < filesArray.length; i++) {
-      const filename = path.parse(filesArray[i]).name;
-      fs.writeFileSync(
-        path.join(__dirname, `../../til/${filename}.html`),
-        htmlCreator(
-          readFile(path.join("../../", arg, filesArray[i])),
-          filename,
-          styleValue,
-          langValue
-        )
-      );
-    }
-  }
 }
 
 export function unwrapCodeBlocks(content: string): string {
-  // We only support 3/4 backticks on purpose, should be good enough
-  // const regexp3 = /(?<begin>^|\n)```jsx\n(?<children>.*?)\n```(?<end>\n|$)/g;
-  const regex = /```(.*?)\n(.*?)\n```/gs;
-  content.replace(regex, function (match, lang, code) {
-    if (lang === "") {
-      content = `<pre><code>
+    // We only support 3/4 backticks on purpose, should be good enough
+    // const regexp3 = /(?<begin>^|\n)```jsx\n(?<children>.*?)\n```(?<end>\n|$)/g;
+    const regex = /```(.*?)\n(.*?)\n```/gs
+    content.replace(regex, function (match, lang, code) {
+        if (lang === '') {
+            content = `<pre><code>
       ${code}
-   </code></pre>`;
-    } else {
-      content =
-        `<pre><code class="language-${lang}">` +
-        `
+   </code></pre>`
+        } else {
+            content =
+                `<pre><code class="language-${lang}">` +
+                `
       ${code}
-      </code></pre>`;
-    }
+      </code></pre>`
+        }
 
-    return content;
-  });
-  return content;
+        return content
+    })
+    return content
 }
