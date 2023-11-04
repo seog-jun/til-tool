@@ -17,6 +17,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "npx prettier --write ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seog-jun/til-tool.git"
