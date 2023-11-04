@@ -1,0 +1,19 @@
+{
+    "workbench.editor.enablePreview": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.useLocalIp": true,
+    "editor.mouseWheelZoom": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Material Theme",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.defaultProfile.windows": "Ubuntu-18.04 (WSL)",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "workbench.startupEditor": "none",
+    "editor.formatOnSave": true,
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "bracketPairColorizer.depreciation-notice": false,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false
+}
