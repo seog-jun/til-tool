@@ -148,3 +148,9 @@ $npm run prettier
 ```bsh
 $npm run lint
 ```
+
+#### Editor Integration
+
+Step 1. Open the Command Palette
+Step 2. Search `settings.json` under `User` and press Enter
+Step 3. Add `.vscode/settings.json` to your local VS Code
