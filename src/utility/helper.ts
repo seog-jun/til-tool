@@ -91,8 +91,6 @@ export function writeMultipleFiles(
 }
 
 export function unwrapCodeBlocks(content: string): string {
-    // We only support 3/4 backticks on purpose, should be good enough
-    // const regexp3 = /(?<begin>^|\n)```jsx\n(?<children>.*?)\n```(?<end>\n|$)/g;
     const regex = /```(.*?)\n(.*?)\n```/gs
     content.replace(regex, function (match, lang, code) {
         if (lang === '') {
