@@ -11,23 +11,29 @@ export function fileExt(ext: string) {
 }
 
 export function removeDir(outputValue: string = '') {
-    if (outputValue) {
-        // remove the existing dir and til directory
-        fs.rmSync(path.join(__dirname, `../../til`), {
-            recursive: true,
-            force: true,
-        })
-        fs.rmSync(path.join(__dirname, `../../${outputValue}`), {
-            recursive: true,
-            force: true,
-        })
-        fs.mkdirSync(path.join(__dirname, `../../${outputValue}`))
-    } else {
-        fs.rmSync(path.join(__dirname, `../../til`), {
-            recursive: true,
-            force: true,
-        })
-        fs.mkdirSync(path.join(__dirname, `../../til`))
+    try {
+        if (outputValue) {
+            // remove the existing dir and til directory
+            fs.rmSync(path.join(__dirname, `../../til`), {
+                recursive: true,
+                force: true,
+            })
+            fs.rmSync(path.join(__dirname, `../../${outputValue}`), {
+                recursive: true,
+                force: true,
+            })
+            fs.mkdirSync(path.join(__dirname, `../../${outputValue}`))
+            console.log('Removed and created directories successfully')
+        } else {
+            fs.rmSync(path.join(__dirname, `../../til`), {
+                recursive: true,
+                force: true,
+            })
+            fs.mkdirSync(path.join(__dirname, `../../til`))
+            console.log('Removed and created directories successfully')
+        }
+    } catch (err) {
+        console.error('Unable to remove directories')
     }
 }
 
@@ -38,21 +44,27 @@ export function writeFile(
     langValue: string = '',
     outputValue: string = ''
 ) {
-    if (outputValue) {
-        fs.writeFileSync(
-            path.join(__dirname, `../../${outputValue}/${filename}.html`),
-            htmlCreator(readFile(path.join('../../', arg)), filename)
-        )
-    } else {
-        fs.writeFileSync(
-            path.join(__dirname, `../../til/${filename}.html`),
-            htmlCreator(
-                readFile(path.join('../../', arg)),
-                filename,
-                styleValue,
-                langValue
+    try {
+        if (outputValue) {
+            fs.writeFileSync(
+                path.join(__dirname, `../../${outputValue}/${filename}.html`),
+                htmlCreator(readFile(path.join('../../', arg)), filename)
             )
-        )
+            console.log('Write File successfully')
+        } else {
+            fs.writeFileSync(
+                path.join(__dirname, `../../til/${filename}.html`),
+                htmlCreator(
+                    readFile(path.join('../../', arg)),
+                    filename,
+                    styleValue,
+                    langValue
+                )
+            )
+            console.log('Write File successfully')
+        }
+    } catch (err) {
+        console.error('Unable to write file')
     }
 }
 
