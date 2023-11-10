@@ -28,7 +28,8 @@
         "lint-fix": "eslint . --ext .ts --fix",
         "prepare": "husky install",
         "test": "jest -c jest.config.ts --runInBand --",
-        "test:watch": "jest -c jest.config.ts --runInBand --watch --"
+        "test:watch": "jest -c jest.config.ts --runInBand --watch --",
+        "coverage": "jest -c jest.config.ts --runInBand --coverage"
     },
     "husky": {
         "hooks": {
