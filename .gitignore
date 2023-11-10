@@ -5,3 +5,5 @@ build/
 til/
 
 .eslintcache
+
+coverage/
