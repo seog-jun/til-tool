@@ -13,7 +13,7 @@ export function readDirectory(dirName: string) {
         )
         return filesArray
     } catch (err) {
-        console.log(err)
+        console.log('Invalid input')
         process.exit(-1)
     }
 }

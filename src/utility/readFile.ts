@@ -8,7 +8,7 @@ export function readFile(filename: string) {
         const arr = contents.split(/\r?\n/)
         return arr
     } catch (err) {
-        console.log(err)
+        console.log('Invalid input')
         process.exit(-1)
     }
 }
