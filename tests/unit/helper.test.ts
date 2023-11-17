@@ -1,4 +1,4 @@
-import { removeDir } from '../../src/utility/helper'
+import { removeDir, unwrapCodeBlocks } from '../../src/utility/helper'
 
 describe('removeDir() testing', () => {
     test('removeDir() without param', () => {
@@ -75,4 +75,25 @@ describe('removeDir() testing', () => {
     //     expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
     //     mockConsole.mockRestore()
     // })
+
+    test('unwrapCodeBlocks() returns string with correct HTML tags', () => {
+        const testSentence = 'This is a fenced code block'
+        const testSentenceWithTicks = `\`\`\`\n${testSentence}\n\`\`\``
+        expect(unwrapCodeBlocks(testSentenceWithTicks)).toBe(
+            `<pre><code>\n      ${testSentence}\n   </code></pre>`
+        )
+    })
+
+    test('unwrapCodeBlocks() returns string with code language if present', () => {
+        const testSentence = 'This is a fenced code block'
+        const testSentenceWithTicks = `\`\`\`JavaScript\n${testSentence}\n\`\`\``
+        expect(unwrapCodeBlocks(testSentenceWithTicks)).toBe(
+            `<pre><code class="language-JavaScript">\n      ${testSentence}\n      </code></pre>`
+        )
+    })
+
+    test('does not replace content if not enclosed with ```', () => {
+        const content = '```This is not a fenced code block'
+        expect(unwrapCodeBlocks(content)).toBe(content)
+    })
 })
