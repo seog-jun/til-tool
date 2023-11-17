@@ -44,8 +44,5 @@ jobs:
             - name: Install npm
               run: npm ci
 
-            - name: Install jset-util
-              run: npm install jest-util
-
             - name: Test
               run: npm run test
