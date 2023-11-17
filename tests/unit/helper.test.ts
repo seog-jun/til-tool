@@ -12,16 +12,16 @@ describe('removeDir() testing', () => {
         mockConsole.mockRestore()
     })
 
-    // test('removeDir() with output param', () => {
-    //     const mockConsole = jest
-    //         .spyOn(console, 'log')
-    //         .mockImplementation(() => {})
-    //     removeDir('build')
-    //     expect(mockConsole).toHaveBeenCalledWith(
-    //         'Removed and created directories successfully'
-    //     )
-    //     mockConsole.mockRestore()
-    // })
+    test('removeDir() with output param', () => {
+        const mockConsole = jest
+            .spyOn(console, 'log')
+            .mockImplementation(() => {})
+        removeDir('build')
+        expect(mockConsole).toHaveBeenCalledWith(
+            'Removed and created directories successfully'
+        )
+        mockConsole.mockRestore()
+    })
 
     // test('removeDir() with output param', () => {
     //     const mockError = jest
