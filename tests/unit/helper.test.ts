@@ -1,4 +1,4 @@
-import { removeDir, writeFile } from '../../src/utility/helper'
+import { removeDir } from '../../src/utility/helper'
 
 describe('removeDir() testing', () => {
     test('removeDir() without param', () => {
