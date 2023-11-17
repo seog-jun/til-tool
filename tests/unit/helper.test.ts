@@ -75,11 +75,4 @@ describe('removeDir() testing', () => {
         expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
         mockConsole.mockRestore()
     })
-
-    // test('writeFile() with error', () => {
-    //     const mockExit = jest.spyOn(process, 'exit').mockImplementation()
-    //     writeFile('example1', 'error.txt')
-    //     expect(mockExit).toHaveBeenCalledWith(-1)
-    //     mockExit.mockRestore()
-    // })
 })

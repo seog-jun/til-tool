@@ -10,20 +10,37 @@ on:
         branches: ['main']
 
 jobs:
-    build:
+    lint:
+        name: ESLint
         runs-on: ubuntu-latest
-
-        strategy:
-            matrix:
-                node-version: [18.x]
-                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
         steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
+            - name: Check out code
+              uses: actions/checkout@v3
+
+            - name: Setup node
               uses: actions/setup-node@v3
               with:
-                  node-version: ${{ matrix.node-version }}
+                  node-version: '18'
                   cache: 'npm'
-            - run: npm ci
-            - run: npm test
+
+            - name: Install node dependencies
+              run: npm ci
+
+            - name: Run ESLint
+              run: npm run lint
+
+    unit-tests:
+        name: Unit Tests
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v3
+
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install node dependencies and run Tests
+              run: npm install-ci-test
