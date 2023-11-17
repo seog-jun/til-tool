@@ -1,5 +1,5 @@
 import path from 'path'
-import fs from 'fs'
+import * as fs from 'fs'
 import { unwrapCodeBlocks } from './helper'
 export function readFile(filename: string) {
     try {

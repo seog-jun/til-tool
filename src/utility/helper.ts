@@ -1,5 +1,5 @@
 import path from 'path'
-import fs from 'fs'
+import * as fs from 'fs'
 import { readFile } from '../utility/readFile'
 import { htmlCreator } from './htmlCreator'
 export function fileExt(ext: string) {
