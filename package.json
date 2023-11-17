@@ -26,9 +26,9 @@
         "prettier-check": "npx prettier . --check",
         "lint": "eslint . --ext .ts",
         "lint-fix": "eslint . --ext .ts --fix",
-        "test": "jest -c jest.config.ts --runInBand --",
-        "test:watch": "jest -c jest.config.ts --runInBand --watch --",
-        "coverage": "jest -c jest.config.ts --runInBand --coverage"
+        "test": "jest -c jest.config.ts --",
+        "test:watch": "jest -c jest.config.ts -watch --",
+        "coverage": "jest -c jest.config.ts --coverage"
     },
     "repository": {
         "type": "git",
