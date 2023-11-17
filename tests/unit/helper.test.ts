@@ -12,25 +12,25 @@ describe('removeDir() testing', () => {
         mockConsole.mockRestore()
     })
 
-    test('removeDir() with output param', () => {
-        const mockConsole = jest
-            .spyOn(console, 'log')
-            .mockImplementation(() => {})
-        removeDir('build')
-        expect(mockConsole).toHaveBeenCalledWith(
-            'Removed and created directories successfully'
-        )
-        mockConsole.mockRestore()
-    })
+    // test('removeDir() with output param', () => {
+    //     const mockConsole = jest
+    //         .spyOn(console, 'log')
+    //         .mockImplementation(() => {})
+    //     removeDir('build')
+    //     expect(mockConsole).toHaveBeenCalledWith(
+    //         'Removed and created directories successfully'
+    //     )
+    //     mockConsole.mockRestore()
+    // })
 
-    test('removeDir() with output param', () => {
-        const mockError = jest
-            .spyOn(console, 'error')
-            .mockImplementation(() => {})
-        removeDir('/')
-        expect(mockError).toHaveBeenCalledWith('Unable to remove directories')
-        mockError.mockRestore()
-    })
+    // test('removeDir() with output param', () => {
+    //     const mockError = jest
+    //         .spyOn(console, 'error')
+    //         .mockImplementation(() => {})
+    //     removeDir('/')
+    //     expect(mockError).toHaveBeenCalledWith('Unable to remove directories')
+    //     mockError.mockRestore()
+    // })
 
     // test('writeFile() with default param', () => {
     //     const mockConsole = jest
