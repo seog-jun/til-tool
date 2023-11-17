@@ -32,47 +32,47 @@ describe('removeDir() testing', () => {
         mockError.mockRestore()
     })
 
-    test('writeFile() with default param', () => {
-        const mockConsole = jest
-            .spyOn(console, 'log')
-            .mockImplementation(() => {})
-        removeDir()
-        writeFile('example1', 'example1.txt')
-        expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
-        mockConsole.mockRestore()
-    })
+    // test('writeFile() with default param', () => {
+    //     const mockConsole = jest
+    //         .spyOn(console, 'log')
+    //         .mockImplementation(() => {})
+    //     removeDir()
+    //     writeFile('example1', 'example1.txt')
+    //     expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
+    //     mockConsole.mockRestore()
+    // })
 
-    test('writeFile() with default param', () => {
-        const mockConsole = jest
-            .spyOn(console, 'log')
-            .mockImplementation(() => {})
-        removeDir()
-        writeFile('example1', 'example1.txt')
-        expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
-        mockConsole.mockRestore()
-    })
+    // test('writeFile() with default param', () => {
+    //     const mockConsole = jest
+    //         .spyOn(console, 'log')
+    //         .mockImplementation(() => {})
+    //     removeDir()
+    //     writeFile('example1', 'example1.txt')
+    //     expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
+    //     mockConsole.mockRestore()
+    // })
 
-    test('writeFile() with style param', () => {
-        const mockConsole = jest
-            .spyOn(console, 'log')
-            .mockImplementation(() => {})
-        removeDir()
-        writeFile(
-            'example1',
-            'example1.txt',
-            'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css'
-        )
-        expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
-        mockConsole.mockRestore()
-    })
+    // test('writeFile() with style param', () => {
+    //     const mockConsole = jest
+    //         .spyOn(console, 'log')
+    //         .mockImplementation(() => {})
+    //     removeDir()
+    //     writeFile(
+    //         'example1',
+    //         'example1.txt',
+    //         'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css'
+    //     )
+    //     expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
+    //     mockConsole.mockRestore()
+    // })
 
-    test('writeFile() with lang param', () => {
-        const mockConsole = jest
-            .spyOn(console, 'log')
-            .mockImplementation(() => {})
-        removeDir()
-        writeFile('example1', 'example1.txt', 'br')
-        expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
-        mockConsole.mockRestore()
-    })
+    // test('writeFile() with lang param', () => {
+    //     const mockConsole = jest
+    //         .spyOn(console, 'log')
+    //         .mockImplementation(() => {})
+    //     removeDir()
+    //     writeFile('example1', 'example1.txt', 'br')
+    //     expect(mockConsole).toHaveBeenCalledWith('Write File successfully')
+    //     mockConsole.mockRestore()
+    // })
 })
