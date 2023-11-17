@@ -15,7 +15,8 @@
     },
     "dependencies": {
         "commander": "^11.0.0",
-        "jest-message-util": "^29.7.0"
+        "jest-message-util": "^29.7.0",
+        "jest-util": "^29.7.0"
     },
     "name": "til-tool",
     "description": "A command-line tool for authoring \"Today I Learned\" posts in Markdown, which can be converted to HTML for publishing on the web",
