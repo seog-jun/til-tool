@@ -9,15 +9,15 @@ describe('readFile() testing', () => {
         ])
     })
 
-    // test('readFile() with invalid param ', () => {
-    //     const mockConsole = jest
-    //         .spyOn(console, 'log')
-    //         .mockImplementation(() => {})
-    //     const mockExit = jest.spyOn(process, 'exit').mockImplementation()
-    //     readFile('')
-    //     expect(mockConsole).toHaveBeenCalledWith('Invalid input')
-    //     expect(mockExit).toHaveBeenCalledWith(-1)
-    //     mockConsole.mockRestore()
-    //     mockExit.mockRestore()
-    // })
+    test('readFile() with invalid param ', () => {
+        const mockConsole = jest
+            .spyOn(console, 'log')
+            .mockImplementation(() => {})
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation()
+        readFile('')
+        expect(mockConsole).toHaveBeenCalledWith('Invalid input')
+        expect(mockExit).toHaveBeenCalledWith(-1)
+        mockConsole.mockRestore()
+        mockExit.mockRestore()
+    })
 })
