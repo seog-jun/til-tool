@@ -14,9 +14,7 @@
         "typescript": "^5.2.2"
     },
     "dependencies": {
-        "commander": "^11.0.0",
-        "jest-message-util": "^29.7.0",
-        "jest-util": "^29.7.0"
+        "commander": "^11.0.0"
     },
     "name": "til-tool",
     "description": "A command-line tool for authoring \"Today I Learned\" posts in Markdown, which can be converted to HTML for publishing on the web",
@@ -27,9 +25,9 @@
         "prettier-check": "npx prettier . --check",
         "lint": "eslint . --ext .ts",
         "lint-fix": "eslint . --ext .ts --fix",
-        "test": "jest -c jest.config.ts --",
-        "test:watch": "jest -c jest.config.ts -watch --",
-        "coverage": "jest -c jest.config.ts --coverage"
+        "test": "jest -c jest.config.ts --runInBand --",
+        "test:watch": "jest -c jest.config.ts --runInBand --watch --",
+        "coverage": "jest -c jest.config.ts --runInBand --coverage"
     },
     "repository": {
         "type": "git",
