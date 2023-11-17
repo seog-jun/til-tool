@@ -64,7 +64,8 @@ export function writeFile(
             console.log('Write File successfully')
         }
     } catch (err) {
-        console.error('Unable to write file')
+        console.log('Unable to write file')
+        process.exit(-1)
     }
 }
 
