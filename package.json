@@ -20,7 +20,7 @@
     },
     "name": "til-tool",
     "description": "A command-line tool for authoring \"Today I Learned\" posts in Markdown, which can be converted to HTML for publishing on the web",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "index.js",
     "scripts": {
         "prettier": "npx prettier --write .",

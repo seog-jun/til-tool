@@ -2,6 +2,12 @@
 
 This is a simple command-line tool to convert .txt files into genereated .html files.
 
+## Download
+
+```
+$ npm i til-tool
+```
+
 ## Features
 
 -   Pass in a .txt file and it'll generate an html file which is stored in `./til` directory.
